@@ -8,7 +8,7 @@ const styles = {
   },
 };
 
-export default function Station({ name = "test" }) {
+export default function Station({ name = "hola" }) {
   return (
     <div style={styles.CONTAINER}>
       <div>{name}</div>

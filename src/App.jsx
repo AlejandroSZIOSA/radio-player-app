@@ -14,7 +14,7 @@ function App() {
       "https://api.sr.se/api/v2/channels?format=json&size=100"
     );
     const data = await res.json();
-    console.log(data.channels);
+    /* console.log(data.channels); */
     setStationList(data.channels);
   }
 
@@ -23,9 +23,11 @@ function App() {
       <h1>RADIO STATION</h1>
       <div>
         <ol>
-          {stationList.map((st) => {
-            return <li key={st.id}>{st.name}</li>;
-          })}
+          {stationList.map((st) => (
+            <li key={st.id}>
+              <Station name={st.name} />
+            </li>
+          ))}
         </ol>
       </div>
     </>
