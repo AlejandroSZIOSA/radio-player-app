@@ -3,7 +3,7 @@ import "./App.css";
 import Station from "./components/Station";
 
 function App() {
-  const [stationList, setStationList] = useState();
+  const [stationList, setStationList] = useState([]);
 
   useEffect(() => {
     getStations();
@@ -20,12 +20,14 @@ function App() {
 
   return (
     <>
-      <h1>RADIO STATION</h1>
+      <h1>RADIO STATIONS</h1>
       <div>
         <ol>
           {stationList.map((st) => (
             <li key={st.id}>
-              <Station name={st.name} />
+              <div style={{ padding: "5px" }}>
+                <Station name={st.name} />
+              </div>
             </li>
           ))}
         </ol>
