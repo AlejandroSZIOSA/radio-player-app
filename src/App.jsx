@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import Station from "./components/Station";
 import "./App.css";
 
@@ -42,8 +41,7 @@ function App() {
         <ol>
           {stationList.map((st) => (
             <li key={st.id}>
-              {/* <div className="stationContainer"> */}
-              <div style={{ padding: "5px" }}>
+              <div className="stationContainer">
                 <Station name={st.name} />
               </div>
             </li>
