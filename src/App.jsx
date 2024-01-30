@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+
 import Station from "./components/Station";
+import "./App.css";
 
 let textInput;
 
@@ -41,6 +42,7 @@ function App() {
         <ol>
           {stationList.map((st) => (
             <li key={st.id}>
+              {/* <div className="stationContainer"> */}
               <div style={{ padding: "5px" }}>
                 <Station name={st.name} />
               </div>
