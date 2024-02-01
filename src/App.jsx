@@ -42,7 +42,11 @@ function App() {
           {stationList.map((st) => (
             <li key={st.id}>
               <div className="stationContainer">
-                <Station name={st.name} />
+                <Station
+                  name={st.name}
+                  source={st.liveaudio.url}
+                  logoImg={st.imagetemplate}
+                />
               </div>
             </li>
           ))}

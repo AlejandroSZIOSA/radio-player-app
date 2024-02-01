@@ -4,39 +4,35 @@ const styles = {
   CONTAINER: {
     display: "flex",
     flexDirection: "row",
-    width: "400px",
-    height: "60",
+    width: "550px",
+    height: "140px",
     alignItems: "center",
-    backgroundColor: "gray",
+    backgroundColor: "grey",
     justifyContent: "space-around",
   },
   LOGO: {
-    width: "50px",
-    height: "50px",
-    backgroundColor: "red",
+    width: "auto",
+    height: "110px",
   },
   INNER_CONTAINER: {
     display: "flex",
     flexDirection: "column",
-    width: "100%",
-    height: "100%",
-    alignContent: "right",
   },
 };
+
+//TODO: Overriding styles
 
 export default function Station(props) {
   return (
     <div style={styles.CONTAINER}>
-      <div style={styles.LOGO}></div>
-
+      <div>
+        <img src={props.logoImg} style={styles.LOGO}></img>
+      </div>
       <div style={styles.INNER_CONTAINER}>
-        <div>{props.name} </div>
+        <h2>{props.name}</h2>
         <div>
           <audio controls>
-            <source
-              src="https://sverigesradio.se/topsy/direkt/srapi/132.mp3"
-              type="audio/mpeg"
-            />
+            <source src={props.source} />
           </audio>
         </div>
       </div>
