@@ -63,6 +63,7 @@ function App() {
       setFilteredList(filterList);
     }
   }
+  console.log(filteredList);
   return (
     <>
       <h1>RADIO STATIONS</h1>
