@@ -7,20 +7,9 @@ import "./App.css";
 let textInput;
 const totalRadioStations = 52;
 
-/* function filterList({ setFilterResults }) {} */
-
-const test = [
-  {
-    name: "test",
-    date: "now",
-  },
-  { name: "hola", date: "now2" },
-];
-
 function App() {
   const [stationList, setStationList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [filterResults, setFilterResults] = useState([]);
 
   useEffect(() => {
     getRadioStations();
@@ -41,37 +30,18 @@ function App() {
     }
   }
 
-  /* const filteredList = stationList.filter((st) => {
-    const radioName = st.name.toLowerCase();
-    const searchTerms =
-      textInput.toLowerCase &&
-      radioName == st.toLowerCase().includes(query.toLowerCase());
-  });
- */
-
-  function filterItems(arr, query) {
-    return arr.filter((el) =>
-      el.name.toLowerCase().includes(query.toLowerCase())
-    );
-  }
-
   function readInput(event) {
     textInput = event.target.value;
     //console.log(textInput);
-    /* console.log(filteredList); */
-    let filterList = filterItems(test, textInput);
-    /* setFilterResults(filterList); */
-    /* console.log(filterList); */
   }
   return (
     <>
       <h1>RADIO STATIONS</h1>
-      <label>
+      {/*   <label>
         Filter Radios Channels:
         <input type="text" onChange={readInput}></input>
-      </label>
-
-      {/* <div>
+      </label> */}
+      <div>
         {isLoading ? (
           <SkeletonTheme baseColor="#B9B9B9" highlightColor="#444">
             <Skeleton count={totalRadioStations} />
@@ -87,9 +57,8 @@ function App() {
             ))}
           </ol>
         )}
-      </div> */}
+      </div>
     </>
   );
 }
-
 export default App;
