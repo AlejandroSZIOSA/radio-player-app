@@ -84,8 +84,9 @@ function App() {
         <input type="text" onChange={readInput}></input>
       </label>
       <ol>
-        {filteredList &&
-          filteredList.map((item) => <li key={item.id}> {item.name}</li>)}
+        {filteredList.map((item) => (
+          <li key={item.id}> {item.name}</li>
+        ))}
       </ol>
 
       {/* <div>
