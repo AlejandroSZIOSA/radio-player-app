@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Station from "./components/Station";
 
-import Skeleton from "react-loading-skeleton";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 import "./App.css";
@@ -22,7 +22,7 @@ function App() {
         "https://api.sr.se/api/v2/channels?format=json&size=100"
       );
       const data = await res.json();
-      /* console.log(data.channels); */
+      /* console.log(data.pagination.totalhits); */
       setStationList(data.channels);
     } catch (e) {
       console.error(e.error);
@@ -48,9 +48,12 @@ function App() {
       <h1>RADIO STATIONS</h1>
       {/* <input type="text" onChange={readInput}></input>
       <button onClick={readInput}> Search</button> */}
+
       <div>
         {isLoading ? (
-          <Skeleton count={10} />
+          <SkeletonTheme baseColor="#B9B9B9" highlightColor="#444">
+            <Skeleton count={52} />
+          </SkeletonTheme>
         ) : (
           <ol>
             {stationList.map((st) => (
