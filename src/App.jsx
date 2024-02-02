@@ -24,9 +24,8 @@ const test = [
 
 function App() {
   const [stationList, setStationList] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [filterResults, setFilterResults] = useState([]);
-  const [tex, setTex] = useState("");
 
   useEffect(() => {
     getRadioStations();
@@ -43,6 +42,7 @@ function App() {
     } catch (e) {
       console.error(e.error);
     } finally {
+      setFilteredList(stationList);
       setIsLoading(false);
     }
   }
@@ -68,10 +68,10 @@ function App() {
     /* console.log(filteredList); */
 
     if (textInput == "") {
-      setFilterResults(test);
+      setFilteredList(stationList);
     } else {
-      var filterList = filterItems(test, textInput);
-      setFilterResults(filterList);
+      var filterList = filterItems(stationList, textInput);
+      setFilteredList(filterList);
     }
     /* setFilterResults(filterList); */
     /* console.log(filterList); */
@@ -84,9 +84,8 @@ function App() {
         <input type="text" onChange={readInput}></input>
       </label>
       <ol>
-        {filterResults.map((item) => (
-          <li key={item.id}> {item.name}</li>
-        ))}
+        {filteredList &&
+          filteredList.map((item) => <li key={item.id}> {item.name}</li>)}
       </ol>
 
       {/* <div>
