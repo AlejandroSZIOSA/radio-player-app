@@ -4,23 +4,29 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "./App.css";
 
-let textInput;
+var textInput;
 const totalRadioStations = 52;
 
 /* function filterList({ setFilterResults }) {} */
 
 const test = [
   {
+    id: 1,
     name: "test",
     date: "now",
   },
-  { name: "hola", date: "now2" },
+  {
+    id: 2,
+    name: "hola",
+    date: "now2",
+  },
 ];
 
 function App() {
   const [stationList, setStationList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [filterResults, setFilterResults] = useState([]);
+  const [tex, setTex] = useState("");
 
   useEffect(() => {
     getRadioStations();
@@ -57,9 +63,16 @@ function App() {
 
   function readInput(event) {
     textInput = event.target.value;
+    /* setTex(textInput); */
     //console.log(textInput);
     /* console.log(filteredList); */
-    let filterList = filterItems(test, textInput);
+
+    if (textInput == "") {
+      setFilterResults(test);
+    } else {
+      var filterList = filterItems(test, textInput);
+      setFilterResults(filterList);
+    }
     /* setFilterResults(filterList); */
     /* console.log(filterList); */
   }
@@ -70,6 +83,11 @@ function App() {
         Filter Radios Channels:
         <input type="text" onChange={readInput}></input>
       </label>
+      <ol>
+        {filterResults.map((item) => (
+          <li key={item.id}> {item.name}</li>
+        ))}
+      </ol>
 
       {/* <div>
         {isLoading ? (
