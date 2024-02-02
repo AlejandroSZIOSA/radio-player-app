@@ -23,16 +23,20 @@ const styles = {
 //TODO: Overriding styles
 
 export default function Station(props) {
+  const logoImg = props.radioData.imagetemplate;
+  const name = props.radioData.name;
+  const source = props.radioData.liveaudio.url;
+
   return (
     <div style={styles.CONTAINER}>
       <div>
-        <img src={props.logoImg} style={styles.LOGO}></img>
+        <img src={logoImg} style={styles.LOGO}></img>
       </div>
       <div style={styles.INNER_CONTAINER}>
-        <h2>{props.name}</h2>
+        <h2>{name}</h2>
         <div>
           <audio controls>
-            <source src={props.source} />
+            <source src={source} />
           </audio>
         </div>
       </div>
