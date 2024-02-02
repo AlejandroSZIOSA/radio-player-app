@@ -4,7 +4,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "./App.css";
 
-var textInput;
+/* var textInput; */
 const totalRadioStations = 52;
 
 /* function filterList({ setFilterResults }) {} */
@@ -47,14 +47,6 @@ function App() {
     }
   }
 
-  /* const filteredList = stationList.filter((st) => {
-    const radioName = st.name.toLowerCase();
-    const searchTerms =
-      textInput.toLowerCase &&
-      radioName == st.toLowerCase().includes(query.toLowerCase());
-  });
- */
-
   function filterItems(arr, query) {
     return arr.filter((el) =>
       el.name.toLowerCase().includes(query.toLowerCase())
@@ -62,10 +54,7 @@ function App() {
   }
 
   function readInput(event) {
-    textInput = event.target.value;
-    /* setTex(textInput); */
-    //console.log(textInput);
-    /* console.log(filteredList); */
+    var textInput = event.target.value;
 
     if (textInput == "") {
       setFilteredList(stationList);
@@ -73,8 +62,6 @@ function App() {
       var filterList = filterItems(stationList, textInput);
       setFilteredList(filterList);
     }
-    /* setFilterResults(filterList); */
-    /* console.log(filterList); */
   }
   return (
     <>
