@@ -69,7 +69,7 @@ function App() {
         <input type="text" onChange={readInput}></input>
       </label>
 
-      {/* <div>
+      <div>
         {isLoading ? (
           <SkeletonTheme baseColor="#B9B9B9" highlightColor="#444">
             <Skeleton count={totalRadioStations} />
