@@ -4,27 +4,39 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "./App.css";
 
-/* var textInput; */
 const totalRadioStations = 52;
 
-/* function filterList({ setFilterResults }) {} */
-
-const test = [
+/* const test = [
   {
     id: 1,
-    name: "test",
-    date: "now",
+    name: "hola1",
+    date: "now1",
   },
   {
     id: 2,
     name: "hola",
     date: "now2",
   },
-];
+  {
+    id: 3,
+    name: "hola3",
+    date: "now3",
+  },
+]; */
+
+//Outside app component
+const getFilteredStations = (items, query) => {
+  if (!query) {
+    return items;
+  }
+  return items.filter((item) =>
+    item.name.toLowerCase().includes(query.toLowerCase())
+  );
+};
 
 function App() {
   const [stationList, setStationList] = useState([]);
-  const [filteredList, setFilteredList] = useState([]);
+  const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -37,54 +49,37 @@ function App() {
         "https://api.sr.se/api/v2/channels?format=json&size=100"
       );
       const data = await res.json();
-      /* console.log(data.pagination.totalhits); */
       setStationList(data.channels);
     } catch (e) {
       console.error(e.error);
     } finally {
-      setFilteredList(stationList);
       setIsLoading(false);
     }
   }
 
-  function filterItems(arr, query) {
-    return arr.filter((el) =>
-      el.name.toLowerCase().includes(query.toLowerCase())
-    );
-  }
+  const filteredStations = getFilteredStations(stationList, query);
 
-  function readInput(event) {
-    var textInput = event.target.value;
-
-    if (textInput == "") {
-      setFilteredList(stationList);
-    } else {
-      var filterList = filterItems(stationList, textInput);
-      setFilteredList(filterList);
-    }
-  }
-  console.log(filteredList);
   return (
     <>
       <h1>RADIO STATIONS</h1>
-      <label>
-        Filter Radios Channels:
-        <input type="text" onChange={readInput}></input>
+      <label style={{ fontSize: "x-large" }}>
+        Filter Radios Stations :{"  "}
+        <input
+          style={{ height: "30px", fontSize: "xx-large " }}
+          type="text"
+          maxLength={11}
+          onChange={(e) => setQuery(e.target.value)}
+        ></input>
       </label>
-      <ol>
-        {filteredList.map((item) => (
-          <li key={item.id}> {item.name}</li>
-        ))}
-      </ol>
 
-      {/* <div>
+      <div>
         {isLoading ? (
           <SkeletonTheme baseColor="#B9B9B9" highlightColor="#444">
             <Skeleton count={totalRadioStations} />
           </SkeletonTheme>
         ) : (
           <ol>
-            {stationList.map((st) => (
+            {filteredStations.map((st) => (
               <li key={st.id}>
                 <div className="stationContainer">
                   <Station radioData={st} />
@@ -93,7 +88,7 @@ function App() {
             ))}
           </ol>
         )}
-      </div> */}
+      </div>
     </>
   );
 }

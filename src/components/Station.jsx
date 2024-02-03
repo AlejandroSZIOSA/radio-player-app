@@ -5,7 +5,7 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     width: "550px",
-    height: "140px",
+    height: "135px",
     alignItems: "center",
     backgroundColor: "grey",
     justifyContent: "space-around",
