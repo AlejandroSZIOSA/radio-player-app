@@ -34,6 +34,7 @@ const getFilteredStations = (items, query) => {
   );
 };
 
+//App Component
 function App() {
   const [stationList, setStationList] = useState([]);
   const [query, setQuery] = useState("");
