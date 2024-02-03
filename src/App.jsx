@@ -14,7 +14,7 @@ const totalRadioStations = 52;
   },
   {
     id: 2,
-    name: "hola",
+    name: "hola2",
     date: "now2",
   },
   {
