@@ -6,16 +6,35 @@ import "./App.css";
 
 const totalRadioStations = 52;
 
-/* function filterList({ setFilterResults }) {} */
-
-const test = [
+/* const test = [
   {
-    name: "test",
-    date: "now",
+    id: 1,
+    name: "hola1",
+    date: "now1",
   },
-  { name: "hola", date: "now2" },
-];
+  {
+    id: 2,
+    name: "hola",
+    date: "now2",
+  },
+  {
+    id: 3,
+    name: "hola3",
+    date: "now3",
+  },
+]; */
 
+//Outside app component
+const getFilteredStations = (items, query) => {
+  if (!query) {
+    return items;
+  }
+  return items.filter((item) =>
+    item.name.toLowerCase().includes(query.toLowerCase())
+  );
+};
+
+//App Component
 function App() {
   const [stationList, setStationList] = useState([]);
   const [query, setQuery] = useState("");
@@ -39,34 +58,20 @@ function App() {
     }
   }
 
-  /* const filteredList = stationList.filter((st) => {
-    const radioName = st.name.toLowerCase();
-    const searchTerms =
-      textInput.toLowerCase &&
-      radioName == st.toLowerCase().includes(query.toLowerCase());
-  });
- */
+  const filteredStations = getFilteredStations(stationList, query);
 
-  function filterItems(arr, query) {
-    return arr.filter((el) =>
-      el.name.toLowerCase().includes(query.toLowerCase())
-    );
-  }
-
-  function readInput(event) {
-    textInput = event.target.value;
-    //console.log(textInput);
-    /* console.log(filteredList); */
-    let filterList = filterItems(test, textInput);
-    /* setFilterResults(filterList); */
-    /* console.log(filterList); */
-  }
   return (
     <>
       <h1>RADIO STATIONS</h1>
-      <label>
-        Filter Radios Channels:
-        <input type="text" onChange={readInput}></input>
+      <label style={{ fontSize: "x-large" }}>
+        Filter Radios Stations :{"  "}
+        <input
+          style={{ height: "30px", fontSize: "xx-large " }}
+          size={16}
+          type="text"
+          maxLength={15}
+          onChange={(e) => setQuery(e.target.value)}
+        ></input>
       </label>
 
       <div>
@@ -89,4 +94,5 @@ function App() {
     </>
   );
 }
+
 export default App;
