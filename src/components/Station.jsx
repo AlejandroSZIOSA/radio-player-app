@@ -4,16 +4,18 @@ const styles = {
   CONTAINER: {
     display: "flex",
     flexDirection: "row",
-    width: "550px",
+    width: "540px",
     height: "135px",
     alignItems: "center",
     backgroundColor: "grey",
     justifyContent: "space-around",
   },
+
   LOGO: {
     width: "auto",
     height: "110px",
   },
+
   INNER_CONTAINER: {
     display: "flex",
     flexDirection: "column",
@@ -26,9 +28,18 @@ export default function Station(props) {
   const logoImg = props.radioData.imagetemplate;
   const name = props.radioData.name;
   const source = props.radioData.liveaudio.url;
+  const bgColor = props.radioData.color;
 
   return (
-    <div style={styles.CONTAINER}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        backgroundColor: "#" + bgColor,
+        alignItems: "center",
+        justifyContent: "space-around",
+      }}
+    >
       <div>
         <img src={logoImg} style={styles.LOGO}></img>
       </div>

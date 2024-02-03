@@ -66,8 +66,9 @@ function App() {
         Filter Radios Stations :{"  "}
         <input
           style={{ height: "30px", fontSize: "xx-large " }}
+          size={16}
           type="text"
-          maxLength={11}
+          maxLength={15}
           onChange={(e) => setQuery(e.target.value)}
         ></input>
       </label>
