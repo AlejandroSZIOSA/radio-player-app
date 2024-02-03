@@ -1,16 +1,6 @@
 import React from "react";
 
 const styles = {
-  CONTAINER: {
-    display: "flex",
-    flexDirection: "row",
-    width: "540px",
-    height: "135px",
-    alignItems: "center",
-    backgroundColor: "grey",
-    justifyContent: "space-around",
-  },
-
   LOGO: {
     width: "auto",
     height: "110px",
@@ -21,8 +11,6 @@ const styles = {
     flexDirection: "column",
   },
 };
-
-//TODO: Overriding styles
 
 export default function Station(props) {
   const logoImg = props.radioData.imagetemplate;
