@@ -6,25 +6,6 @@ import "./App.css";
 
 const totalRadioStations = 52;
 
-/* const test = [
-  {
-    id: 1,
-    name: "hola1",
-    date: "now1",
-  },
-  {
-    id: 2,
-    name: "hola2",
-    date: "now2",
-  },
-  {
-    id: 3,
-    name: "hola3",
-    date: "now3",
-  },
-]; */
-
-//Outside app component
 const getFilteredStations = (items, query) => {
   if (!query) {
     return items;
@@ -34,7 +15,6 @@ const getFilteredStations = (items, query) => {
   );
 };
 
-//App Component
 function App() {
   const [stationList, setStationList] = useState([]);
   const [query, setQuery] = useState("");
@@ -64,7 +44,7 @@ function App() {
     <>
       <h1>RADIO STATIONS</h1>
       <label style={{ fontSize: "x-large" }}>
-        Filter Radios Stations :{"  "}
+        Filter Radios Stations :
         <input
           style={{ height: "30px", fontSize: "xx-large " }}
           size={16}
