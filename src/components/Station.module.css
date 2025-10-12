@@ -1,0 +1,15 @@
+.stationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.logo {
+  width: auto;
+  height: 110px;
+}
+
+.stationInnerContainer {
+  display: flex;
+  flex-direction: column;
+}

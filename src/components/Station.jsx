@@ -1,43 +1,24 @@
-import React from "react";
-
-const styles = {
-  LOGO: {
-    width: "auto",
-    height: "110px",
-  },
-
-  INNER_CONTAINER: {
-    display: "flex",
-    flexDirection: "column",
-  },
-};
+import classes from "./Station.module.css";
 
 export default function Station(props) {
+  const imageSquare = props.radioData.image;
   const logoImg = props.radioData.imagetemplate;
   const name = props.radioData.name;
   const source = props.radioData.liveaudio.url;
   const bgColor = props.radioData.color;
+  const { radioSourceFn } = props;
 
   return (
     <div
+      className={classes.stationContainer}
       style={{
-        display: "flex",
-        flexDirection: "row",
         backgroundColor: "#" + bgColor,
-        alignItems: "center",
-        justifyContent: "space-around",
       }}
     >
-      <div>
-        <img src={logoImg} style={styles.LOGO}></img>
-      </div>
-      <div style={styles.INNER_CONTAINER}>
-        <h2>{name}</h2>
-        <div>
-          <audio controls>
-            <source src={source} />
-          </audio>
-        </div>
+      <img src={imageSquare} className={classes.logo} alt={name}></img>
+      <div className={classes.stationInnerContainer}>
+        <button onClick={() => radioSourceFn(source)}>Play</button>
+        {/* <PlayerPanel source={source} /> */}
       </div>
     </div>
   );

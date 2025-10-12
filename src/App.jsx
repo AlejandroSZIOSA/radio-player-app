@@ -3,6 +3,7 @@ import Station from "./components/Station";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "./App.css";
+import PlayerPanel from "./components/PlayerPanel";
 
 const totalRadioStations = 52;
 
@@ -19,6 +20,7 @@ function App() {
   const [stationList, setStationList] = useState([]);
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [radioSource, setRadioSource] = useState("");
 
   useEffect(() => {
     getRadioStations();
@@ -42,12 +44,17 @@ function App() {
 
   return (
     <>
-      <h1>RADIO STATIONS</h1>
+      <header>
+        <h1>SWEDISH RADIO STATIONS</h1>
+        {/* fix problem with the key prop warning in the PlayerPanel */}
+        <PlayerPanel key={radioSource} source={radioSource} />
+      </header>
+
       <label style={{ fontSize: "x-large" }}>
         Filter Radios Stations :
         <input
           style={{ height: "30px", fontSize: "xx-large " }}
-          size={16}
+          size={5}
           type="text"
           maxLength={15}
           onChange={(e) => setQuery(e.target.value)}
@@ -64,7 +71,7 @@ function App() {
             {filteredStations.map((st) => (
               <li key={st.id}>
                 <div className="stationContainer">
-                  <Station radioData={st} />
+                  <Station radioData={st} radioSourceFn={setRadioSource} />
                 </div>
               </li>
             ))}
