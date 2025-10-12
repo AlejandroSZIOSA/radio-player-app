@@ -12,14 +12,18 @@ export default function Station(props) {
     <div
       className={classes.stationContainer}
       style={{
+        display: "inline-flex",
         backgroundColor: "#" + bgColor,
+        border: "2px solid black",
       }}
     >
-      <img src={imageSquare} className={classes.logo} alt={name}></img>
-      <div className={classes.stationInnerContainer}>
-        <button onClick={() => radioSourceFn(source)}>Play</button>
-        {/* <PlayerPanel source={source} /> */}
-      </div>
+      <img
+        src={imageSquare}
+        onClick={() => radioSourceFn(source)}
+        className={classes.logo}
+        alt={name}
+      ></img>
+      <span>{name}</span>
     </div>
   );
 }

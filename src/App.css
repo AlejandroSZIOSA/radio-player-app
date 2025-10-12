@@ -1,12 +1,76 @@
 #root {
   width: 100vw;
-  margin: 0;
-  padding: 1rem;
-  text-align: left;
-  /* background-color: aqua; */
+  /*   margin: 0; */
+  /*   padding: 0.5rem; */
+  /* text-align: left; */
+  background-color: rgb(239, 239, 239);
 }
-.stationContainer {
-  padding: 5px;
+header {
+  position: sticky;
+  top: 0;
+  background: yellowgreen;
+}
+
+header div {
+  justify-items: center;
+  padding-top: 0.5rem;
+}
+
+.filterContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0.8rem;
+}
+
+.filterContainer input {
+  height: 30px;
+  font-size: xx-large;
+}
+
+main {
+  padding: 0 0.5rem;
+  margin-bottom: 3.5rem;
+  /* flex: 1; */
+}
+
+main ol {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+main ol li {
+  list-style: none;
+  margin: auto;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background: yellowgreen;
+  width: 100%;
+  height: 5vh;
+  align-content: center;
+  justify-items: center;
+}
+
+footer div {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    margin-bottom: 4rem;
+    /* flex: 1; */
+  }
+  main ol {
+    grid-template-columns: repeat(11, 1fr);
+    margin: 0 0.5rem;
+  }
 }
 
 /* .logo {

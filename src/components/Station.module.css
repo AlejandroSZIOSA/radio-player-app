@@ -5,11 +5,17 @@
   justify-content: space-around;
 }
 .logo {
-  width: auto;
-  height: 110px;
+  width: 100px;
+  height: auto;
 }
 
 .stationInnerContainer {
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (min-width: 1024px) {
+  .logo {
+    width: 150px;
+  }
 }

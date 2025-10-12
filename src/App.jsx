@@ -45,23 +45,22 @@ function App() {
   return (
     <>
       <header>
-        <h1>SWEDISH RADIO STATIONS</h1>
-        {/* fix problem with the key prop warning in the PlayerPanel */}
-        <PlayerPanel key={radioSource} source={radioSource} />
+        <div>
+          <h2>SWEDISH RADIO STATIONS</h2>
+          {/* fix problem with the key prop warning in the PlayerPanel */}
+          <PlayerPanel key={radioSource} source={radioSource} />
+        </div>
+        <div className="filterContainer">
+          <p>Filter Radios </p>
+          <input
+            type="text"
+            size={10}
+            maxLength={15}
+            onChange={(e) => setQuery(e.target.value)}
+          ></input>
+        </div>
       </header>
-
-      <label style={{ fontSize: "x-large" }}>
-        Filter Radios Stations :
-        <input
-          style={{ height: "30px", fontSize: "xx-large " }}
-          size={5}
-          type="text"
-          maxLength={15}
-          onChange={(e) => setQuery(e.target.value)}
-        ></input>
-      </label>
-
-      <div>
+      <main>
         {isLoading ? (
           <SkeletonTheme baseColor="#B9B9B9" highlightColor="#444">
             <Skeleton count={totalRadioStations} />
@@ -70,14 +69,24 @@ function App() {
           <ol>
             {filteredStations.map((st) => (
               <li key={st.id}>
-                <div className="stationContainer">
-                  <Station radioData={st} radioSourceFn={setRadioSource} />
-                </div>
+                <Station radioData={st} radioSourceFn={setRadioSource} />
               </li>
             ))}
           </ol>
         )}
-      </div>
+      </main>
+      <footer>
+        <div>
+          <span className="pr-4 pl-8 font-sans">Chas</span>
+          <img
+            src="/public/chasAcademy_logo.svg"
+            width={32}
+            height="auto"
+            alt="Logo"
+          ></img>
+          <span className="pl-4 font-sans">Academy</span>
+        </div>
+      </footer>
     </>
   );
 }
