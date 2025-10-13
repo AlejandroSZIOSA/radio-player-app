@@ -4,6 +4,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "./App.css";
 import PlayerPanel from "./components/PlayerPanel";
+import chasLogo from "../public/chasLogo.svg";
 
 const totalRadioStations = 52;
 
@@ -59,8 +60,8 @@ function App() {
           <p>Filter Radios </p>
           <input
             type="text"
-            size={10}
-            maxLength={15}
+            size={16}
+            maxLength={25}
             onChange={(e) => setQuery(e.target.value)}
           ></input>
         </div>
@@ -86,14 +87,9 @@ function App() {
       </main>
       <footer>
         <div>
-          <span className="pr-4 pl-8 font-sans">Chas</span>
-          <img
-            src="/public/chasAcademy_logo.svg"
-            width={32}
-            height="auto"
-            alt="Logo"
-          ></img>
-          <span className="pl-4 font-sans">Academy</span>
+          <span style={{ marginRight: "0.3rem" }}>Chas</span>
+          <img src={chasLogo} width={32} height="auto" alt="Logo"></img>
+          <span style={{ marginLeft: "0.3rem" }}>Academy</span>
         </div>
       </footer>
     </>

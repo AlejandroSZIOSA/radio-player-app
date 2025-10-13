@@ -16,16 +16,12 @@ export default function Station(props) {
         backgroundColor: "#" + bgColor,
         border: "2px solid black",
       }}
+      onClick={() => {
+        radioSourceFn(source);
+        radioNameFn(name);
+      }}
     >
-      <img
-        src={imageSquare}
-        onClick={() => {
-          radioSourceFn(source);
-          radioNameFn(name);
-        }}
-        className={classes.logo}
-        alt={name}
-      ></img>
+      <img src={imageSquare} className={classes.logo} alt={name}></img>
       <span>{name}</span>
     </div>
   );

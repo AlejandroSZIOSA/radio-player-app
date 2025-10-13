@@ -1,14 +1,11 @@
 .playerPanelContainer {
+  display: flex;
+  flex-direction: column;
   padding-bottom: 0.2rem;
 }
 
 .radioNameContainer p {
-  width: fit-content;
-  height: 3vh;
   text-align: center;
-  background-color: black;
-  color: aqua;
   font-size: 1rem;
   font-weight: bold;
-  padding: 0 0.5rem;
 }

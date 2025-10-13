@@ -20,12 +20,15 @@ header div {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.6rem;
+}
+.filterContainer p {
+  padding-right: 0.5rem;
 }
 
 .filterContainer input {
   height: 30px;
-  font-size: xx-large;
+  font-size: 1.5rem;
 }
 
 main {
