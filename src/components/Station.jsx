@@ -6,7 +6,7 @@ export default function Station(props) {
   const name = props.radioData.name;
   const source = props.radioData.liveaudio.url;
   const bgColor = props.radioData.color;
-  const { radioSourceFn } = props;
+  const { radioSourceFn, radioNameFn } = props;
 
   return (
     <div
@@ -19,7 +19,10 @@ export default function Station(props) {
     >
       <img
         src={imageSquare}
-        onClick={() => radioSourceFn(source)}
+        onClick={() => {
+          radioSourceFn(source);
+          radioNameFn(name);
+        }}
         className={classes.logo}
         alt={name}
       ></img>

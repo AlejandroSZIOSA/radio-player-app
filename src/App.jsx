@@ -21,6 +21,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [radioSource, setRadioSource] = useState("");
+  const [radioName, setRadioName] = useState("");
 
   useEffect(() => {
     getRadioStations();
@@ -48,7 +49,11 @@ function App() {
         <div>
           <h2>SWEDISH RADIO STATIONS</h2>
           {/* fix problem with the key prop warning in the PlayerPanel */}
-          <PlayerPanel key={radioSource} source={radioSource} />
+          <PlayerPanel
+            key={radioSource}
+            source={radioSource}
+            name={radioName}
+          />
         </div>
         <div className="filterContainer">
           <p>Filter Radios </p>
@@ -69,7 +74,11 @@ function App() {
           <ol>
             {filteredStations.map((st) => (
               <li key={st.id}>
-                <Station radioData={st} radioSourceFn={setRadioSource} />
+                <Station
+                  radioData={st}
+                  radioSourceFn={setRadioSource}
+                  radioNameFn={setRadioName}
+                />
               </li>
             ))}
           </ol>
