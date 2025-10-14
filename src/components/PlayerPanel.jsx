@@ -1,7 +1,7 @@
 import classes from "./PlayerPanel.module.css";
 import { useEffect, useState } from "react";
 
-export default function PlayerPanel({ source, name }) {
+export default function PlayerPanel({ source, radioName }) {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -10,7 +10,7 @@ export default function PlayerPanel({ source, name }) {
     if (isLoading) {
       setMessage("Loading...");
     } else if (isPlaying) {
-      setMessage(name);
+      setMessage(radioName);
     } else setMessage("No playing");
   }, [isLoading, isPlaying]);
 

@@ -3,9 +3,17 @@
   flex-direction: column;
   padding-bottom: 0.2rem;
 }
-
 .radioNameContainer p {
   text-align: center;
-  font-size: 1rem;
   font-weight: bold;
+}
+
+/* breakpoint desktop */
+@media screen and (min-width: 1024px) {
+  .playerPanelContainer {
+    flex-direction: row;
+  }
+  .radioNameContainer p {
+    margin-left: 1rem;
+  }
 }

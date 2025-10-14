@@ -53,7 +53,7 @@ function App() {
           <PlayerPanel
             key={radioSource}
             source={radioSource}
-            name={radioName}
+            radioName={radioName}
           />
         </div>
         <div className="filterContainer">
@@ -77,6 +77,7 @@ function App() {
               <li key={st.id}>
                 <Station
                   radioData={st}
+                  // callback fns
                   radioSourceFn={setRadioSource}
                   radioNameFn={setRadioName}
                 />

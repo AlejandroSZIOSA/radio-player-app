@@ -2,8 +2,7 @@ import classes from "./Station.module.css";
 
 export default function Station(props) {
   const imageSquare = props.radioData.image;
-  const logoImg = props.radioData.imagetemplate;
-  const name = props.radioData.name;
+  const radioName = props.radioData.name;
   const source = props.radioData.liveaudio.url;
   const bgColor = props.radioData.color;
   const { radioSourceFn, radioNameFn } = props;
@@ -12,17 +11,19 @@ export default function Station(props) {
     <div
       className={classes.stationContainer}
       style={{
-        display: "inline-flex",
         backgroundColor: "#" + bgColor,
-        border: "2px solid black",
       }}
       onClick={() => {
         radioSourceFn(source);
-        radioNameFn(name);
+        radioNameFn(radioName);
       }}
     >
-      <img src={imageSquare} className={classes.logo} alt={name}></img>
-      <span>{name}</span>
+      <img
+        src={imageSquare}
+        className={classes.radioLogo}
+        alt={radioName}
+      ></img>
+      <span>{radioName}</span>
     </div>
   );
 }

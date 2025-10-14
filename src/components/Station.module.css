@@ -1,21 +1,28 @@
 .stationContainer {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  border: 2px solid black;
 }
-.logo {
-  width: 100px;
+.radioLogo {
+  width: 105px;
   height: auto;
 }
 
-.stationInnerContainer {
-  display: flex;
-  flex-direction: column;
+/* first breakpoint iPhone 14 pro max */
+@media screen and (min-width: 430px) {
+  .radioLogo {
+    width: 120px;
+  }
 }
 
+/* second breakpoint desktop */
 @media screen and (min-width: 1024px) {
-  .logo {
+  .stationContainer {
+    cursor: pointer;
+  }
+  .radioLogo {
     width: 150px;
   }
 }
