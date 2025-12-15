@@ -4,7 +4,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "./App.css";
 import PlayerPanel from "./components/PlayerPanel";
-import chasLogo from "../public/chasLogo.svg";
+import vite from "../public/vite.svg";
 
 const totalRadioStations = 52;
 
@@ -88,9 +88,7 @@ function App() {
       </main>
       <footer>
         <div>
-          <span style={{ marginRight: "0.3rem" }}>Chas</span>
-          <img src={chasLogo} width={32} height="auto" alt="Logo"></img>
-          <span style={{ marginLeft: "0.3rem" }}>Academy</span>
+          <img src={vite} width={25} height="auto" alt="ViteLogo"></img>
         </div>
       </footer>
     </>
